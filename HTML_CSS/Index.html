@@ -35,15 +35,15 @@
   <div class="modal-content">
     <span class="close-btn" id="closeModalBtn">&times;</span>
     <h2>Inscrivez-vous</h2>
-    <form>
+    <form action="#" method="post" id="form1">
       <label for="name">Nom d'utilisateur:</label>
-      <input type="text" id="name" name="name" placeholder="Votre Nom" required>
+      <input type="text" id="name" name="name" pattern="[A-Za-z]{3,}" placeholder="Votre Nom" autofocus required>
 
-      <label for="email">Email:</label>
+      <label for="email" action="" method="GET">Email:</label>
       <input type="email" id="email" name="email" placeholder="Votre Email" required>
 
-      <label for="password">Mot de passe:</label>
-      <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+      <label for="vmdp">Mot de passe:</label>
+      <input type="password" id="mdp" name="mdp" pattern="^(?=.*[0-9])(?=.*[\W_]).{6,}$"  placeholder="Votre mot de passe" required>
       <p>Au mois un symbole, un chiffre, ainsi que 6 caracteres minimun.</p>
       <br>
 
