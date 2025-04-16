@@ -22,15 +22,39 @@
     <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
     <ul>
       <li><a href='http://'>Accueil</a></li>
-      <li><a href='http://'>S'inscrire</a></li>
+      <li><a href="#" id="openModalBtn">S'inscrire</a></li>
       <li><a href='http://'>Se connecter</a></li>
       <li><a href='http://'>Profil</a></li>
       <li><a href='http://'>Jouer</a></li>
     </ul>
   </nav>
 
+   
+  <!-- OVERLAY& -->
+<div id="modalOverlay" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" id="closeModalBtn">&times;</span>
+    <h2>Inscrivez-vous</h2>
+    <form>
+      <label for="name">Nom d'utilisateur:</label>
+      <input type="text" id="name" name="name" placeholder="Votre Nom" required>
 
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Votre Email" required>
+
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
+      <p>Au mois un symbole, un chiffre, ainsi que 6 caracteres minimun.</p>
+      <br>
+
+      <button type="submit">S'inscrire</button>
+    </form>
+  </div>
 </div>
+
+
+
+
 <br>
 <br>
 <div id="Box">
