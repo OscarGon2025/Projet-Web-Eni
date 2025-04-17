@@ -216,20 +216,89 @@
 	margin-top: 10px;
   }
   
-  form input {
-	padding: 8px;
+  /* form input {
+	
 	margin-top: 5px;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+	border-radius: 1px;
+	border: none; /* Elimina el borde completo */
+    /* border-bottom: 2px solid rgb(131, 131, 131); /* Añade solo un borde inferior blanco */
+    /* outline: none; /* Elimina el contorno al hacer clic */
+    /* background-color: transparent; /* Asegura que no haya fondo */
+    /* color: white; /* Color del texto del input */
+    /* padding: 5px 0; /* Espaciado para que el texto no esté pegado */
+
+  /* } */
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+
+
+	border: none; /* Elimina el borde completo */
+	border-bottom: 2px solid white; /* Añade solo un borde inferior blanco */
+	outline: none; /* Elimina el contorno al hacer clic */
+	background-color: transparent; /* Asegura que no haya fondo */
+	color: white; /* Color del texto del input */
+	padding: 5px 0; /* Espaciado para que el texto no esté pegado */
+
   }
-  
-  form button[type="submit"] {
+
+  input:focus {
+	border-bottom: 2px solid lightgray; 
+}
+
+  /* form button[type="submit"] {
 	margin-top: 20px;
-	background-color: #57c785;
+	background-color: #35b369;
 	color: white;
 	border: none;
 	padding: 10px;
 	border-radius: 5px;
 	cursor: pointer;
   }
+   */
+/* Style formulaire */
+
+/* fieldset {
+
+	border: none;
+}
+ */
+ /* Estilos para el contenedor de los botones */
+
+ .button-container {
+	display: flex;
+	justify-content: center;
+	gap: 50px; /* Espacio de 50px entre los botones */
+	
+	
+ }
+
+  #btnAnnuler {
+	padding: 5px 15px;
+	background-color: #f44336; /* Color de fondo */
+	color: white;
+	border: none;
+	cursor: pointer;
+	margin-left: 50px;
+	margin-top: 20px;
+  }
   
+  #btnAnnuler:hover {
+	background-color: #d32f2f; /* Cambio de color al pasar el cursor */
+  }
+  
+  /* Estilos para el botón "Valider" */
+  #valider {
+	padding: 5px 15px;
+	 /*background-color: #4CAF50; /* Color de fondo */
+	color: white;
+	border: none;
+	cursor: pointer;
+	margin-left: 70px;
+	margin-top: 20px;
+  }
+  
+  /* #valider:hover {
+	background-color: #45a049; /* Cambio de color al pasar el cursor */
+   

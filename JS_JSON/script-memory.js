@@ -32,95 +32,111 @@ function updatemenu() {
 
   // PASSWOR VALIDATION
 
-  function passwordVisibility() {
+//   function passwordVisibility() {
 
-    //ajouter un evènement au click sur l'image
-    document.getElementById('oeil').addEventListener('click', function () {
-        //changer la source de l'image, le alt et le type de l'input
-        const pwdInput = document.getElementById('mdp')
+//     //ajouter un evènement au click sur l'image
+//     document.getElementById('oeil').addEventListener('click', function () {
+//         //changer la source de l'image, le alt et le type de l'input
+//         const pwdInput = document.getElementById('mdp')
 
-        if (pwdInput.type === "password") {
-            pwdInput.type = "text";
-            this.src = "images/eye-open.png"
-            //this.setAttribute('src', 'images/eye-open.png');
-            this.alt = "Icône oeil ouvert"
-        } else {
-            pwdInput.type = "password";
-            this.src = "images/eye-close.png"
-            this.alt = "Icône oeil fermé"
-        }
-    })
-}
+//         if (pwdInput.type === "password") {
+//             pwdInput.type = "text";
+//             this.src = "images/eye-open.png"
+//             //this.setAttribute('src', 'images/eye-open.png');
+//             this.alt = "Icône oeil ouvert"
+//         } else {
+//             pwdInput.type = "password";
+//             this.src = "images/eye-close.png"
+//             this.alt = "Icône oeil fermé"
+//         }
+//     })
+// }
 
+
+
+// Check Mot de Passe
 function checkPassword() {
-    //récupérer la valeur de l'input
-    let pwd = document.getElementById('mdp').value
-
-    let pwdLen = checkPwdLength(pwd)
-    let pwdNum = checkPwdNumber(pwd)
-    let pwdMin = checkPwdMinus(pwd)
-    let pwdMax = checkPwdMaxus(pwd)
-
-    if (pwdLen && pwdNum && pwdMin && pwdMax) {
-        document.getElementById('valider').disabled = false
-    } else {
-        document.getElementById('valider').disabled = true
-    }
+  let pwd = document.getElementById('mdp').value;
+  checkPwd(pwd); // Cambia el color
+  checkForm();   // Verifica si todo está OK para activar el botón
 }
 
-function checkPwdNumber(pwd) {
-
-    // /[0-9]+/ expression régulière qui vérifie si
-    //le mdp contient un chiffre
-    let isOk = /[0-9]+/.test(pwd)
-
-    if (isOk) {
-        colorTextGreen('chiffre')
-    } else {
-        colorTextRed('chiffre')
-    }
-
-    return isOk
-}
-function checkPwdLength(pwd) {
-
-    let isOk = pwd.length >= 6
-    //tester la longueur du mot
-    if (isOk) {
-        //modifier la couleur de la consigne concernée (vert ou rouge)
-        colorTextGreen('nbCaracteres')
-    } else {
-        colorTextRed('nbCaracteres')
-    }
-
-    return isOk
-}
-
-function checkPwdSymbol(pwd) {
-  // Verifica si hay al menos un símbolo (carácter no alfanumérico)
-  let isOk = /[\W_]+/.test(pwd); // incluye símbolos como !@#$%, etc.
+function checkPwd(pwd) {
+  const regex = /^(?=.*[0-9])(?=.*[\W_]).{6,}$/;
+  const isOk = regex.test(pwd);
 
   if (isOk) {
-    colorTextGreen('symbole');
+    colorTextGreen('checkMdp');
   } else {
-    colorTextRed('symbole');
+    colorTextRed('checkMdp');
   }
 
   return isOk;
 }
 
+// Check Nom
+function checkNom() {
+  let nom = document.getElementById('name').value;
+  checkPwdLengthNom(nom); // Cambia el color
+  checkForm();            // Verifica si todo está OK para activar el botón
+}
+
+function checkPwdLengthNom(nom) {
+  let isOk = nom.length >= 3;
+
+  if (isOk) {
+    colorTextGreen('nbCaracteresName');
+  } else {
+    colorTextRed('nbCaracteresName');
+  }
+
+  return isOk;
+}
+
+
+
+// Check EMAIL
+
+
+
+
+// Verifica el estado general del formulario
+function checkForm() {
+  const nom = document.getElementById('name').value;
+  const pwd = document.getElementById('mdp').value;
+
+  const nomOk = checkPwdLengthNom(nom);
+  const pwdOk = checkPwd(pwd);
+
+  document.getElementById('valider').disabled = !(nomOk && pwdOk);
+}
+
+// Colores
 function colorTextGreen(id) {
-    document.getElementById(id).style.color = "chartreuse"
+  document.getElementById(id).style.color = "chartreuse";
 }
 
 function colorTextRed(id) {
-    document.getElementById(id).style.color = "red"
+  document.getElementById(id).style.color = "red";
 }
 
-
+// Inicialización
 function init() {
-    passwordVisibility()
-    document.getElementById('mdp').addEventListener('input', checkPassword)
+  document.getElementById('name').addEventListener('input', checkNom);
+  document.getElementById('mdp').addEventListener('input', checkPassword);
 }
 
 window.onload = init
+
+
+//fermer overlay
+
+function closeOverlay (){
+
+document.getElementById('modalOverlay').style.display = "none";
+
+document.getElementById('name').value = '';
+document.getElementById('email').value = '';
+document.getElementById('mdp').value = '';
+
+}

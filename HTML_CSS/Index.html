@@ -35,20 +35,39 @@
   <div class="modal-content">
     <span class="close-btn" id="closeModalBtn">&times;</span>
     <h2>Inscrivez-vous</h2>
-    <form action="#" method="post" id="form1">
-      <label for="name">Nom d'utilisateur:</label>
+    <form action="#" method="post" >
+      <!-- <fieldset> -->
+
+
+      <label for="name">Nom d'utilisateur</label>
       <input type="text" id="name" name="name" pattern="[A-Za-z]{3,}" placeholder="Votre Nom" autofocus required>
+      <ul><li id="nbCaracteresName">Choisissez un pseudo contenant au moins 3 caractères </li></ul>
 
-      <label for="email" action="" method="GET">Email:</label>
+
+      <label for="email" action="" method="GET">Email</label>
       <input type="email" id="email" name="email" placeholder="Votre Email" required>
+      <ul><li id="emailValide">Rentrez un email valide.</li></ul>
 
-      <label for="vmdp">Mot de passe:</label>
+
+      <label for="mdp">Mot de passe</label>
       <input type="password" id="mdp" name="mdp" pattern="^(?=.*[0-9])(?=.*[\W_]).{6,}$"  placeholder="Votre mot de passe" required>
-      <p>Au mois un symbole, un chiffre, ainsi que 6 caracteres minimun.</p>
+      <ul><li id="checkMdp">Au mois un symbole, un chiffre, ainsi que 6 caracteres minimun.</li></ul>
+
+      
+
       <br>
 
-      <button type="submit">S'inscrire</button>
+
+      <div class="btnContainer">
+      <input type="submit" value="S'inscrire" id="valider" disabled>
+      <!-- <button type="button" id="btnAnnuler"><a href="Index.html"></a>Annuler</button> -->
+      <!-- <input type="button" onclick="alert('Hello World!')" value="Annuler">  -->
+      <button id="btnAnnuler" onclick="closeOverlay()">Annuler</button>
+      <!-- <button type="submit">S'inscrire</button> -->
+    <!-- </fieldset> -->
+     </div>
     </form>
+  
   </div>
 </div>
 
