@@ -35,25 +35,26 @@
   <div class="modal-content">
     <span class="close-btn" id="closeModalBtn">&times;</span>
     <h2>Inscrivez-vous</h2>
-    <form action="#" method="post" >
+    <form action="#" method="post" autocomplete="off">
       <!-- <fieldset> -->
 
 
       <label for="name">Nom d'utilisateur</label>
-      <input type="text" id="name" name="name" pattern="[A-Za-z]{3,}" placeholder="Votre Nom" autofocus required>
+      <input type="text" id="name" name="name" pattern="[A-Za-z]{3,}" placeholder="Votre Nom" autofocus autocomplete="off" required>
       <ul><li id="nbCaracteresName">Choisissez un pseudo contenant au moins 3 caractères </li></ul>
 
 
       <label for="email" action="" method="GET">Email</label>
-      <input type="email" id="email" name="email" placeholder="Votre Email" required>
+      <input type="email" id="email" name="email" placeholder="Votre Email" autocomplete="off" required>
       <ul><li id="emailValide">Rentrez un email valide.</li></ul>
 
 
       <label for="mdp">Mot de passe</label>
-      <input type="password" id="mdp" name="mdp" pattern="^(?=.*[0-9])(?=.*[\W_]).{6,}$"  placeholder="Votre mot de passe" required>
+      <input type="password" id="mdp" name="mdp" pattern="^(?=.*[0-9])(?=.*[\W_]).{6,}$" autocomplete="new-password" placeholder="Votre mot de passe" required>
       <ul><li id="checkMdp">Au mois un symbole, un chiffre, ainsi que 6 caracteres minimun.</li></ul>
 
-      
+      <img class="iconCheck" id="iconCheck" src="/HTML_CSS\Ressources1\check.svg" alt="check">
+      <img class="iconError"  d="iconError" src="/HTML_CSS\Ressources1\error.svg" alt="error">
 
       <br>
 
@@ -72,6 +73,46 @@
 </div>
 
 
+
+
+
+
+
+  <!-- Se Connecter -->
+  <div id="modalOverlay" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModalBtn">&times;</span>
+      <h2>Se Connecter</h2>
+      <form action="#" method="post" >
+        <!-- <fieldset> -->
+  
+    
+        <label for="email" action="" method="GET">Email</label>
+        <input type="email" id="email" name="email" placeholder="Votre Email" required>
+        <ul><li id="emailValide">Rentrez un email valide.</li></ul>
+  
+  
+        <label for="mdp">Mot de passe</label>
+        <input type="password" id="mdp" name="mdp" pattern="^(?=.*[0-9])(?=.*[\W_]).{6,}$"  placeholder="Votre mot de passe" required>
+        <ul><li id="checkMdp">Au mois un symbole, un chiffre, ainsi que 6 caracteres minimun.</li></ul>
+  
+  
+        <br>
+  
+  
+        <div class="btnContainer">
+        <input type="submit" value="S'inscrire" id="valider" disabled>
+        <!-- <button type="button" id="btnAnnuler"><a href="Index.html"></a>Annuler</button> -->
+        <!-- <input type="button" onclick="alert('Hello World!')" value="Annuler">  -->
+        <button id="btnAnnuler" onclick="closeOverlay()">Annuler</button>
+        <!-- <button type="submit">S'inscrire</button> -->
+      <!-- </fieldset> -->
+       </div>
+      </form>
+    
+    </div>
+  </div>
+  
 
 
 <br>

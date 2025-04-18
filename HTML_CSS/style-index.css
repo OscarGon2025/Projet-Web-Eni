@@ -291,14 +291,30 @@
   /* Estilos para el botón "Valider" */
   #valider {
 	padding: 5px 15px;
-	 /*background-color: #4CAF50; /* Color de fondo */
-	color: white;
+	background-color: #37883a;
+	color: rgb(255, 255, 255);
 	border: none;
 	cursor: pointer;
 	margin-left: 70px;
 	margin-top: 20px;
   }
-  
-  /* #valider:hover {
-	background-color: #45a049; /* Cambio de color al pasar el cursor */
+  #valider:hover {
+	background-color: #45a049;
    
+  }
+
+
+/* ICONOS */
+
+
+.iconCheck, .iconError {
+	display: none;
+	width: 20px; /* Tamaño de los iconos */
+	height: 20px;
+	margin-left: 10px;
+  }
+  
+  /* Otras reglas de estilo que puedas necesitar */
+  #emailValide {
+	font-size: 14px;
+  }

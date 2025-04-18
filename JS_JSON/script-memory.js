@@ -93,48 +93,75 @@ function checkPwdLengthNom(nom) {
   return isOk;
 }
 
-
-
 // Check EMAIL
+function checkEmail() {
+  let emailField = document.getElementById('email');
+  // Expresión regular para validar el correo electrónico con extensión
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
-
+  // Validar el campo de correo usando la regex
+  if (regex.test(emailField.value)) {
+    // Si el correo es válido, cambia el color a verde
+    colorTextGreen('emailValide');
+    return true;  // Retorna true si es válido
+  } else {
+    // Si el correo no es válido, cambia el color a rojo
+    colorTextRed('emailValide');
+    return false;  // Retorna false si no es válido
+  }
+}
 
 
 // Verifica el estado general del formulario
 function checkForm() {
   const nom = document.getElementById('name').value;
   const pwd = document.getElementById('mdp').value;
-
+  // const emailField = document.getElementById('email').value;
+  
   const nomOk = checkPwdLengthNom(nom);
   const pwdOk = checkPwd(pwd);
+  const emaOk = checkEmail();
 
-  document.getElementById('valider').disabled = !(nomOk && pwdOk);
+  // Habilita o deshabilita el botón de acuerdo con el estado del formulario
+  document.getElementById('valider').disabled = !(nomOk && pwdOk && emaOk);
 }
 
 // Colores
 function colorTextGreen(id) {
   document.getElementById(id).style.color = "chartreuse";
+  document.getElementById(iconCheck).style.display = "inline"; // Muestra el icono de éxito    NO FUNCIONA 
+  document.getElementById(iconCheck.replace('Check', 'Error')).style.display = "none"; // Oculta el icono de error   NO FUNCIONA
 }
+
 
 function colorTextRed(id) {
   document.getElementById(id).style.color = "red";
+  document.getElementById(iconError).style.display = "inline"; // Muestra el icono de error
+  document.getElementById(iconError.replace('Error', 'Check')).style.display = "none"; // Oculta el icono de éxito
 }
+
+
+
+
+
+
+
+
 
 // Inicialización
 function init() {
   document.getElementById('name').addEventListener('input', checkNom);
   document.getElementById('mdp').addEventListener('input', checkPassword);
+  document.getElementById('email').addEventListener('input', checkEmail);
 }
 
-window.onload = init
-
-
+window.onload = init;  // Corrige la invocación de init
 //fermer overlay
 
 function closeOverlay (){
 
 document.getElementById('modalOverlay').style.display = "none";
-
+document.getElementById('signupForm').reset();
 document.getElementById('name').value = '';
 document.getElementById('email').value = '';
 document.getElementById('mdp').value = '';
